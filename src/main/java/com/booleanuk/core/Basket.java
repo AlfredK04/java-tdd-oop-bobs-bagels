@@ -5,12 +5,17 @@ import java.util.Map;
 
 public class Basket {
     private Map<String, Integer> basket;
+    private int maxQuantity = 4;
 
     public Basket() {
         this.basket = new HashMap<>();
+        this.maxQuantity = 4;
     }
 
     public void addToBasket(String sku, int quantity) {
+        if (getMaxQuantity() + quantity > maxQuantity) {
+            throw new IllegalStateException("Basket is full");
+        }
         basket.put(sku, quantity);
     }
 
@@ -26,5 +31,13 @@ public class Basket {
         } else {
             basket.put(sku, newQuantity);
         }
+    }
+
+    public int getMaxQuantity() {
+        int total = 0;
+        for (int quantity : basket.values()) {
+            total += quantity;
+        }
+        return total;
     }
 }

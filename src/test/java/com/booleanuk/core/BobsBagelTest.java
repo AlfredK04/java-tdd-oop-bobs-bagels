@@ -27,4 +27,12 @@ public class BobsBagelTest {
         basket.removeFromBasket("BGLO", 1);
         Assertions.assertFalse(basket.getBasket().containsKey("BGLO"));
     }
+
+    @Test
+    public void limitForBasket() {
+        Basket basket = new Basket();
+        basket.addToBasket("BGLO", 4);
+        Assertions.assertEquals(4, basket.getBasket().get("BGLO"));
+        Assertions.assertThrows(IllegalStateException.class, () -> basket.addToBasket("BGLO", 1));
+    }
 }
