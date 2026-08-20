@@ -24,6 +24,9 @@ public class Basket {
     }
 
     public void removeFromBasket(String sku, int quantity) {
+        if (!basket.containsKey(sku)) {
+            throw new IllegalStateException("Product not in basket");
+        }
         int currentQuantity = basket.get(sku);
         int newQuantity = currentQuantity - quantity;
         if (newQuantity <= 0) {
