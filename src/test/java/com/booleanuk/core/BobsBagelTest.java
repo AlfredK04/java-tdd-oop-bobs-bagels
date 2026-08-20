@@ -46,6 +46,13 @@ public class BobsBagelTest {
         basket.addToBasket("BGLE", 4);
         Assertions.assertEquals(4, basket.getBasket().get("BGLE"));
         Assertions.assertEquals(4, basket.getBasket().get("BGLO"));
+    }
 
+    @Test
+    public void removeNothingBasket() {
+        Basket basket = new Basket();
+        basket.addToBasket("BGLO", 4);
+        Assertions.assertEquals(4, basket.getBasket().get("BGLO"));
+        Assertions.assertThrows(IllegalStateException.class, () -> basket.removeFromBasket("BGLE", 1));
     }
 }

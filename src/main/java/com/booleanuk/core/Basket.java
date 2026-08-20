@@ -40,4 +40,8 @@ public class Basket {
         }
         return total;
     }
+
+    public void changeMaxQuantity(int newMaxQuantity) {
+        this.maxQuantity = newMaxQuantity;
+    }
 }
