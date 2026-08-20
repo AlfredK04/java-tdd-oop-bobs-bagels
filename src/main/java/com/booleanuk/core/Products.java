@@ -16,5 +16,9 @@ public class Products {
     public String getSku(){
         return sku;
     }
+
+    public double getPrice() {
+        return price;
+    }
     
 }

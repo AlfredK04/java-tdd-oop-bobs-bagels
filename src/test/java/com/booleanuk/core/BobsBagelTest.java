@@ -62,6 +62,6 @@ public class BobsBagelTest {
         Basket basket = new Basket();
         basket.addToBasket("BGLO", 2);
         basket.addToBasket("COFB", 1);
-        Assertions.assertEquals(1.97, basket.getTotalCost());
+        Assertions.assertEquals(1.97, basket.getTotalCost(inv));
     }
 }

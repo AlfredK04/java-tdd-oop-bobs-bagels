@@ -29,4 +29,12 @@ public class Inventory {
         return products.get(index);
     }
     
+    public Products findBySku(String sku) {
+        for (Products product : products) {
+            if (product.getSku().equals(sku)) {
+                return product;
+            }
+        }
+        return null;
+    }
 }

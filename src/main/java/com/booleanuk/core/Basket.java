@@ -47,4 +47,13 @@ public class Basket {
     public void changeMaxQuantity(int newMaxQuantity) {
         this.maxQuantity = newMaxQuantity;
     }
+
+    public double getTotalCost(Inventory inventory) {
+        double totalCost = 0.0;
+        for (Map.Entry<String, Integer> entry : basket.entrySet()) {
+            Products product = inventory.findBySku(entry.getKey());
+            totalCost += product.getPrice() * entry.getValue();
+        }
+        return totalCost;
+    }
 }
