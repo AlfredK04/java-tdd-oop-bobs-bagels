@@ -16,4 +16,15 @@ public class BobsBagelTest {
         basket.addToBasket("BGLO", 2);
         Assertions.assertEquals(2, basket.getBasket().get("BGLO"));
     }
+
+    @Test
+    public void removeFromBasket() {
+        Basket basket = new Basket();
+        basket.addToBasket("BGLO", 2);
+        Assertions.assertEquals(2, basket.getBasket().get("BGLO"));
+        basket.removeFromBasket("BGLO", 1);
+        Assertions.assertEquals(1, basket.getBasket().get("BGLO"));
+        basket.removeFromBasket("BGLO", 1);
+        Assertions.assertEquals(0, basket.getBasket().get("BGLO"));
+    }
 }
