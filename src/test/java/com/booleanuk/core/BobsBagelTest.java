@@ -25,6 +25,6 @@ public class BobsBagelTest {
         basket.removeFromBasket("BGLO", 1);
         Assertions.assertEquals(1, basket.getBasket().get("BGLO"));
         basket.removeFromBasket("BGLO", 1);
-        Assertions.assertEquals(0, basket.getBasket().get("BGLO"));
+        Assertions.assertFalse(basket.getBasket().containsKey("BGLO"));
     }
 }

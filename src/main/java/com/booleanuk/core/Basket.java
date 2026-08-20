@@ -17,4 +17,14 @@ public class Basket {
     public Map<String, Integer> getBasket() {
         return basket;
     }
+
+    public void removeFromBasket(String sku, int quantity) {
+        int currentQuantity = basket.get(sku);
+        int newQuantity = currentQuantity - quantity;
+        if (newQuantity <= 0) {
+            basket.remove(sku);
+        } else {
+            basket.put(sku, newQuantity);
+        }
+    }
 }
